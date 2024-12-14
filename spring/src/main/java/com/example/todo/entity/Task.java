@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,6 +33,7 @@ public class Task extends BaseEntity {
   private String name;
 
   @Column(nullable = false, columnDefinition = "SMALLINT")
+  @Enumerated(EnumType.ORDINAL)
   private Integer priority;
 
   @Column(columnDefinition = "TEXT")
