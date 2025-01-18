@@ -6,9 +6,9 @@ import lombok.Getter;
 @Getter
 public enum TaskPriority {
 
-  Low(0,"低"),
-  Medium(1,"中"),
-  High(2,"高");
+  LOW(0,"低"),
+  MEDIUM(1,"中"),
+  HIGH(2,"高");
 
   private final int value;
   private final String label;
