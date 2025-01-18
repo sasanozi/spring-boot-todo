@@ -28,24 +28,22 @@ public class TaskBaseResponse {
   private String updatedAt;
 
   public TaskBaseResponse(Task task) {
-
     this.id = task.getId();
     this.project = task.getProject();
     this.name = task.getName();
     this.priority = new TaskPriorityResponse(task.getPriority());
     this.memo = task.getMemo();
-
-    this.deadlineAt = this.formatDateTimeToymdHm(task.getDeadlineAt());
-    this.completedAt = this.formatDateTimeToymdHm(task.getCompletedAt());
-    this.createdAt = this.formatDateTimeToymdHm(task.getCreatedAt());
-    this.updatedAt = this.formatDateTimeToymdHm(task.getUpdatedAt());
+    this.deadlineAt = this.formatFromDateTimeToYmdHm(task.getDeadlineAt());
+    this.completedAt = this.formatFromDateTimeToYmdHm(task.getCompletedAt());
+    this.createdAt = this.formatFromDateTimeToYmdHm(task.getCreatedAt());
+    this.updatedAt = this.formatFromDateTimeToYmdHm(task.getUpdatedAt());
   }
 
-  private String formatDateTimeToymdHm(LocalDateTime detaTime){
-    if (detaTime == null) {
+  private String formatFromDateTimeToYmdHm(LocalDateTime dateTime) {
+    if (dateTime == null) {
       return null;
     }
 
-    return TimeUtil.Format.toYmdHm(detaTime);
+    return TimeUtil.Format.toYmdHm(dateTime);
   }
 }
