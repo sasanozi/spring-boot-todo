@@ -45,4 +45,12 @@ public class Task extends BaseEntity {
   @Column(name = "completed_at")
   private LocalDateTime completedAt;
 
+  public boolean isCompleted() {
+    return this.completedAt != null;
+  }
+
+  public void toggleCompleted() {
+    this.setCompletedAt(this.isCompleted() ? null : LocalDateTime.now());
+  }
+
 }
