@@ -7,11 +7,12 @@ import com.example.todo.repository.TaskRepository;
 public class TaskDeleteService {
 
   private final TaskRepository taskRepository;
+
   public TaskDeleteService(TaskRepository taskRepository) {
     this.taskRepository = taskRepository;
   }
+
   public void invoke(Integer id) {
     this.taskRepository.deleteById(id);
   }
-  
 }
